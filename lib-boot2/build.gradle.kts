@@ -1,14 +1,12 @@
 plugins {
     `java-library`
-    `maven-publish`
-    signing
+    id("com.vanniktech.maven.publish") version "0.37.0"
 }
 
 version = "1.0.0"
 
 val springVersion by extra("5.3.4")
 val mongoClientVersion by extra("4.1.1")
-val isReleaseVersion by extra(!version.toString().endsWith("SNAPSHOT"))
 
 sourceSets {
     named("main") { java.setSrcDirs(listOf(rootProject.file("shared/src/main/java"))) }
@@ -34,11 +32,6 @@ configurations {
     }
 }
 
-java {
-    withJavadocJar()
-    withSourcesJar()
-}
-
 tasks.withType<Javadoc> {
     isFailOnError = false
 }
@@ -52,45 +45,42 @@ tasks.withType<Jar> {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("library") {
-            groupId = rootProject.group.toString()
-            artifactId = "${rootProject.name}-boot2"
-            version = project.version.toString()
+mavenPublishing {
+    publishToMavenCentral(automaticRelease = false)
+    signAllPublications()
 
-            from(components["java"])
+    coordinates(rootProject.group.toString(), "${rootProject.name}-boot2", version.toString())
 
-            pom {
-                name.set("Spring MongoDB Test (Spring Boot 2)")
-                description.set("A TestExecutionListener for simplifying the database seeding in integration tests for Spring and MongoDB")
-                url.set("https://github.com/hws-software-gmbh/spring-mongodb-test")
-                licenses {
-                    license {
-                        name.set("The MIT License (MIT)")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("DevAtHeart")
-                        name.set("Jimi Steidl")
-                        email.set("jimi.steidl@hws-software.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/hws-software-gmbh/spring-mongodb-test.git")
-                    developerConnection.set("scm:git:ssh://github.com/hws-software-gmbh/spring-mongodb-test.git")
-                    url.set("https://github.com/hws-software-gmbh/spring-mongodb-test")
-                }
+    pom {
+        name.set("Spring MongoDB Test (Spring Boot 2)")
+        description.set("A TestExecutionListener for simplifying the database seeding in integration tests for Spring and MongoDB")
+        url.set("https://github.com/hws-software-gmbh/spring-mongodb-test")
+        licenses {
+            license {
+                name.set("The MIT License (MIT)")
+                url.set("https://opensource.org/licenses/MIT")
             }
         }
+        developers {
+            developer {
+                id.set("DevAtHeart")
+                name.set("Jimi Steidl")
+                email.set("jimi.steidl@hws-software.com")
+            }
+        }
+        scm {
+            connection.set("scm:git:git://github.com/hws-software-gmbh/spring-mongodb-test.git")
+            developerConnection.set("scm:git:ssh://github.com/hws-software-gmbh/spring-mongodb-test.git")
+            url.set("https://github.com/hws-software-gmbh/spring-mongodb-test")
+        }
     }
+}
 
+publishing {
     repositories {
         maven {
             name = "local"
-            url = uri("$buildDir/repos/release")
+            url = uri(layout.buildDirectory.dir("repos/release"))
         }
 
         maven {
@@ -102,22 +92,5 @@ publishing {
             }
             authentication { create<HttpHeaderAuthentication>("header") }
         }
-
-        maven {
-            val releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            val snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-
-            name = "mavenCentral"
-            url = uri(if (isReleaseVersion) releasesRepoUrl else snapshotsRepoUrl)
-            credentials {
-                username = properties["mavenCentralUser"].toString()
-                password = properties["mavenCentralPassword"].toString()
-            }
-        }
     }
-}
-
-signing {
-    setRequired { isReleaseVersion }
-    sign(publishing.publications["library"])
 }
