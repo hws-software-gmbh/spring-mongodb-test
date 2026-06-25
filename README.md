@@ -10,7 +10,7 @@ tests.
 #### Spring Boot 2
 
 ```groovy
-testImplementation 'com.wholegrain-software:spring-mongodb-test-boot2:2.0.0'
+testImplementation 'com.hws-software:spring-mongodb-test-boot2:1.0.0'
 ```
 
 ### Maven
@@ -18,9 +18,9 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test-boot2:2.0.0'
 ```xml
 
 <dependency>
-    <groupId>com.wholegrain-software</groupId>
+    <groupId>com.hws-software</groupId>
     <artifactId>spring-mongodb-test-boot2</artifactId>
-    <version>2.0.0</version>
+    <version>1.0.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -28,7 +28,7 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test-boot2:2.0.0'
 #### Spring Boot 3
 
 ```groovy
-testImplementation 'com.wholegrain-software:spring-mongodb-test-boot3:2.0.0'
+testImplementation 'com.hws-software:spring-mongodb-test-boot3:1.0.0'
 ```
 
 ### Maven
@@ -36,9 +36,9 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test-boot3:2.0.0'
 ```xml
 
 <dependency>
-    <groupId>com.wholegrain-software</groupId>
+    <groupId>com.hws-software</groupId>
     <artifactId>spring-mongodb-test-boot3</artifactId>
-    <version>2.0.0</version>
+    <version>1.0.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -46,7 +46,7 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test-boot3:2.0.0'
 #### Spring Boot 4
 
 ```groovy
-testImplementation 'com.wholegrain-software:spring-mongodb-test-boot4:2.0.0'
+testImplementation 'com.hws-software:spring-mongodb-test-boot4:1.0.0'
 ```
 
 ### Maven
@@ -54,9 +54,9 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test-boot4:2.0.0'
 ```xml
 
 <dependency>
-    <groupId>com.wholegrain-software</groupId>
+    <groupId>com.hws-software</groupId>
     <artifactId>spring-mongodb-test-boot4</artifactId>
-    <version>2.0.0</version>
+    <version>1.0.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test-boot4:2.0.0'
 The following lines of code add the `MongoDBTestExecutionListener` to the SpringBootTest lifecycle.
 
 ```java
-import com.wholegrainsoftware.springmongotest.MongoDBTestExecutionListener;
+import com.hwssoftware.springmongotest.MongoDBTestExecutionListener;
 
 @SpringBootTest
 @TestExecutionListeners(
@@ -97,8 +97,8 @@ The `@Doc` annotation allows inserting documents into the given database.
 A typical test will look like this:
 
 ```java
-import com.wholegrainsoftware.springmongotest.Doc;
-import com.wholegrainsoftware.springmongotest.MongoDBTest;
+import com.hwssoftware.springmongotest.Doc;
+import com.hwssoftware.springmongotest.MongoDBTest;
 import org.junit.jupiter.api.Test;
 
 @Doc(collection = "person", files = {"/documents/john-doe.bson"}, /* optional: db = "my_mongo_database" */)
@@ -141,7 +141,7 @@ public class Person {
 You can even aggregate multiple `@Doc` annotations into custom annotations like:
 
 ```java
-import com.wholegrainsoftware.springmongotest.Doc;
+import com.hwssoftware.springmongotest.Doc;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -158,8 +158,8 @@ The `@GridFsFile` annotation allows inserting files into GridFs of the given dat
 A test will look like this:
 
 ```java
-import com.wholegrainsoftware.springmongotest.GridFsFile;
-import com.wholegrainsoftware.springmongotest.MongoDBTest;
+import com.hwssoftware.springmongotest.GridFsFile;
+import com.hwssoftware.springmongotest.MongoDBTest;
 import org.junit.jupiter.api.Test;
 
 @GridFsFile(id = "60327c7f9189342c201e0e11", filePath = "/files/test.pdf", /* optional: db = "my_mongo_database" */)
@@ -181,7 +181,7 @@ and several tests that showcase this library.
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Wholegrain Software, Jimi Steidl <www.wholegrain-software.com>
+Copyright (c) 2026 HWS Software GmbH, Jimi Steidl <www.hws-software.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -66,7 +66,7 @@ publishing {
             pom {
                 name.set("Spring MongoDB Test (Spring Boot 3)")
                 description.set("A TestExecutionListener for simplifying the database seeding in integration tests for Spring and MongoDB")
-                url.set("https://github.com/Wholegrain-Software/spring-mongodb-test")
+                url.set("https://github.com/hws-software-gmbh/spring-mongodb-test")
                 licenses {
                     license {
                         name.set("The MIT License (MIT)")
@@ -77,13 +77,13 @@ publishing {
                     developer {
                         id.set("DevAtHeart")
                         name.set("Jimi Steidl")
-                        email.set("jimi.steidl@wholegrain-software.com")
+                        email.set("jimi.steidl@hws-software.com")
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/Wholegrain-Software/spring-mongodb-test.git")
-                    developerConnection.set("scm:git:ssh://github.com/Wholegrain-Software/spring-mongodb-test.git")
-                    url.set("https://github.com/Wholegrain-Software/spring-mongodb-test")
+                    connection.set("scm:git:git://github.com/hws-software-gmbh/spring-mongodb-test.git")
+                    developerConnection.set("scm:git:ssh://github.com/hws-software-gmbh/spring-mongodb-test.git")
+                    url.set("https://github.com/hws-software-gmbh/spring-mongodb-test")
                 }
             }
         }
