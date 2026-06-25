@@ -43,7 +43,7 @@ public class MyIntegrationTest {
 The database will be determined through one of the following properties:
 
 ```yaml
-spring.data.monogdb.database: my_mongo_database
+spring.data.mongodb.database: my_mongo_database
 # or
 spring.data.mongodb.uri: mongodb://localhost:27017/my_mongo_database
 ```
