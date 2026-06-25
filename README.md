@@ -7,8 +7,10 @@ tests.
 
 ### Gradle
 
+#### Spring Boot 2
+
 ```groovy
-testImplementation 'com.wholegrain-software:spring-mongodb-test:1.2.0'
+testImplementation 'com.wholegrain-software:spring-mongodb-test-boot2:2.0.0'
 ```
 
 ### Maven
@@ -17,8 +19,44 @@ testImplementation 'com.wholegrain-software:spring-mongodb-test:1.2.0'
 
 <dependency>
     <groupId>com.wholegrain-software</groupId>
-    <artifactId>spring-mongodb-test</artifactId>
-    <version>1.2.0</version>
+    <artifactId>spring-mongodb-test-boot2</artifactId>
+    <version>2.0.0</version>
+    <scope>test</scope>
+</dependency>
+```
+
+#### Spring Boot 3
+
+```groovy
+testImplementation 'com.wholegrain-software:spring-mongodb-test-boot3:2.0.0'
+```
+
+### Maven
+
+```xml
+
+<dependency>
+    <groupId>com.wholegrain-software</groupId>
+    <artifactId>spring-mongodb-test-boot3</artifactId>
+    <version>2.0.0</version>
+    <scope>test</scope>
+</dependency>
+```
+
+#### Spring Boot 4
+
+```groovy
+testImplementation 'com.wholegrain-software:spring-mongodb-test-boot4:2.0.0'
+```
+
+### Maven
+
+```xml
+
+<dependency>
+    <groupId>com.wholegrain-software</groupId>
+    <artifactId>spring-mongodb-test-boot4</artifactId>
+    <version>2.0.0</version>
     <scope>test</scope>
 </dependency>
 ```
