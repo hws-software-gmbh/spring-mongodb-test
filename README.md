@@ -174,7 +174,7 @@ public class MyGridFsTest extends MyIntegrationTest {
 
 ## Example
 
-For a more thorough example, please check out the [example](example/spring-example). It contains a functional Spring Boot application
+For a more thorough example, please check out the [examples](example). It contains a functional Spring Boot application
 and several tests that showcase this library.
 
 ## License
