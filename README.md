@@ -84,6 +84,11 @@ The database will be determined through one of the following properties:
 spring.data.mongodb.database: my_mongo_database
 # or
 spring.data.mongodb.uri: mongodb://localhost:27017/my_mongo_database
+
+# on Spring Boot 4, the properties were renamed (no more "data"):
+spring.mongodb.database: my_mongo_database
+# or
+spring.mongodb.uri: mongodb://localhost:27017/my_mongo_database
 ```
 
 In this case everything will be executed against `my_mongo_database`.

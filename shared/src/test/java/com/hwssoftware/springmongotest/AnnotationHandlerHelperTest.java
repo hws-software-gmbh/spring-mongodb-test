@@ -68,6 +68,37 @@ class AnnotationHandlerHelperTest {
     }
 
     @Test
+    public void getDatabaseNameReturnsDatabaseFromNewDatabaseProperty() {
+        when(env.getProperty("spring.mongodb.database")).thenReturn("my_database");
+        when(env.getProperty("spring.mongodb.uri")).thenReturn("mongodb://localhost:27017/my_other_db");
+
+        assertEquals(getDatabaseName(ctx), "my_database");
+    }
+
+    @Test
+    public void getDatabaseNameReturnsDatabaseFromNewUriProperty() {
+        when(env.getProperty("spring.mongodb.uri")).thenReturn("mongodb://localhost:27017/my_other_db");
+
+        assertEquals(getDatabaseName(ctx), "my_other_db");
+    }
+
+    @Test
+    public void getDatabaseNamePrefersNewDatabasePropertyOverLegacy() {
+        when(env.getProperty("spring.mongodb.database")).thenReturn("new_database");
+        when(env.getProperty("spring.data.mongodb.database")).thenReturn("legacy_database");
+
+        assertEquals(getDatabaseName(ctx), "new_database");
+    }
+
+    @Test
+    public void getDatabaseNamePrefersNewUriPropertyOverLegacy() {
+        when(env.getProperty("spring.mongodb.uri")).thenReturn("mongodb://localhost:27017/new_db");
+        when(env.getProperty("spring.data.mongodb.uri")).thenReturn("mongodb://localhost:27017/legacy_db");
+
+        assertEquals(getDatabaseName(ctx), "new_db");
+    }
+
+    @Test
     public void getDatabaseNameThrowsExceptionIfNeitherPropertyIsSet() {
         MongoDBTestException ex = assertThrows(MongoDBTestException.class, () -> {
             getDatabaseName(ctx);

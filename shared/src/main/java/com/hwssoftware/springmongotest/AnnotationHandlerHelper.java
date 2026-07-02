@@ -44,8 +44,6 @@ import static com.hwssoftware.springmongotest.MongoDBTestException.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 class AnnotationHandlerHelper {
-    // Spring Boot 4 renamed the MongoDB properties from "spring.data.mongodb.*" to
-    // "spring.mongodb.*". We resolve both so the listener keeps working on Boot 2/3 and 4.
     static final String MONGODB_URI = "spring.mongodb.uri";
     static final String MONGODB_DATABASE = "spring.mongodb.database";
     static final String LEGACY_MONGODB_URI = "spring.data.mongodb.uri";
