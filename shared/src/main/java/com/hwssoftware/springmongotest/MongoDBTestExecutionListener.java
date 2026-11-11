@@ -86,8 +86,17 @@ import java.util.Set;
  * @since 0.0.1
  */
 public class MongoDBTestExecutionListener extends AbstractTestExecutionListener {
-    private final MongoDBAnnotationHandler mongoDB = new MongoDBAnnotationHandler();
-    private final GridFsAnnotationHandler gridFs = new GridFsAnnotationHandler();
+    private final AnnotationHandler<Doc> mongoDB;
+    private final AnnotationHandler<GridFsFile> gridFs;
+
+    public MongoDBTestExecutionListener() {
+        this(new MongoDBAnnotationHandler(), new GridFsAnnotationHandler());
+    }
+
+    MongoDBTestExecutionListener(AnnotationHandler<Doc> mongoDB, AnnotationHandler<GridFsFile> gridFs) {
+        this.mongoDB = mongoDB;
+        this.gridFs = gridFs;
+    }
 
     @Override
     public void beforeTestMethod(TestContext context) {
@@ -109,7 +118,6 @@ public class MongoDBTestExecutionListener extends AbstractTestExecutionListener 
     }
 
     private <T extends Annotation> void executeCleanup(TestContext context, AnnotationHandler<T> preparator) {
-        preparator.cleanup(context);
         preparator.cleanup(context);
     }
 
