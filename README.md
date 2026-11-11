@@ -10,7 +10,7 @@ tests.
 #### Spring Boot 2
 
 ```groovy
-testImplementation 'com.hws-software:spring-mongodb-test-boot2:1.0.0'
+testImplementation 'com.hws-software:spring-mongodb-test-boot2:1.0.1'
 ```
 
 ### Maven
@@ -20,7 +20,7 @@ testImplementation 'com.hws-software:spring-mongodb-test-boot2:1.0.0'
 <dependency>
     <groupId>com.hws-software</groupId>
     <artifactId>spring-mongodb-test-boot2</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -28,7 +28,7 @@ testImplementation 'com.hws-software:spring-mongodb-test-boot2:1.0.0'
 #### Spring Boot 3
 
 ```groovy
-testImplementation 'com.hws-software:spring-mongodb-test-boot3:1.0.0'
+testImplementation 'com.hws-software:spring-mongodb-test-boot3:1.0.1'
 ```
 
 ### Maven
@@ -38,7 +38,7 @@ testImplementation 'com.hws-software:spring-mongodb-test-boot3:1.0.0'
 <dependency>
     <groupId>com.hws-software</groupId>
     <artifactId>spring-mongodb-test-boot3</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -46,7 +46,7 @@ testImplementation 'com.hws-software:spring-mongodb-test-boot3:1.0.0'
 #### Spring Boot 4
 
 ```groovy
-testImplementation 'com.hws-software:spring-mongodb-test-boot4:1.0.0'
+testImplementation 'com.hws-software:spring-mongodb-test-boot4:1.0.1'
 ```
 
 ### Maven
@@ -56,7 +56,7 @@ testImplementation 'com.hws-software:spring-mongodb-test-boot4:1.0.0'
 <dependency>
     <groupId>com.hws-software</groupId>
     <artifactId>spring-mongodb-test-boot4</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <scope>test</scope>
 </dependency>
 ```

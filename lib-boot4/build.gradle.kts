@@ -3,7 +3,7 @@ plugins {
     id("com.vanniktech.maven.publish") version "0.37.0"
 }
 
-version = "1.0.0"
+version = "1.0.1"
 
 val springVersion by extra("7.0.8")
 val mongoClientVersion by extra("5.8.0")
